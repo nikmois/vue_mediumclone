@@ -22,7 +22,6 @@
                           <input v-model="password" type="password" class="form-control form-control-lg" placeholder="Password" />
                       </fieldset>
                       <button class="btn btn-lg btn-primary pull-xs-right" :disabled="isSubmitting">Sign Up</button>
-                      {{isSubmitting}}
                   </form>
               </div>
           </div>
