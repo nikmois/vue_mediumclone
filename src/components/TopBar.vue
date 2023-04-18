@@ -1,11 +1,12 @@
 <template>
   <nav class="navbar navbar-light">
       <div class="container">
-          <router-link class="navbar-brand" :to="{name: 'home'}" >MediumClone</router-link>
+          <router-link class="navbar-brand" :to="{name: 'home'}">MediumClone</router-link>
           <ul class="nav navbar-nav pull-xs-right">
             <li class="nav-item">
                 <router-link class="nav-link" :to="{name: 'home'}" active-class="active" exact>Home</router-link>
             </li>
+
             <template v-if="isLoggedIn">
                 <li class="nav-item">
                     <router-link class="nav-link" :to="{name: 'createArticle'}" active-class="active">
@@ -25,7 +26,7 @@
                     </router-link>
                 </li>
             </template>
-            <template v-if="!isLoggedIn">
+            <template v-if="isAnonymous">
                 <li class="nav-item">
                 <router-link class="nav-link" :to="{name: 'login'}" active-class="active">Sign In</router-link>
             </li>
@@ -39,15 +40,16 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { getterTypes } from '@/store/modules/auth'
+import { mapGetters } from 'vuex'
 export default {
     name: "McvTopbar",
     computed: {
-        ...mapState({
-            currentUser: state => state.auth.currentUser,
-            isLoggedIn: state => state.auth.isLoggedIn
-
-        })
+        ...mapGetters({
+            currentUser: getterTypes.currentUser,
+            isLoggedIn: getterTypes.isLoggedIn,
+            isAnonymous: getterTypes.isAnonymous
+        }),
     }
 }
 </script>
