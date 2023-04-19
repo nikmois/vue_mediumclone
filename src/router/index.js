@@ -10,6 +10,16 @@ const routes = [
     component: GlobalFeedView
   },
   {
+    path: '/feed',
+    name: 'yourFeed',
+    component: GlobalFeedView
+  },
+  {
+    path: '/tags/:slug',
+    name: 'tag',
+    component: GlobalFeedView
+  },
+  {
     path: '/register',
     name: 'register',
     component: RegisterView
@@ -25,15 +35,30 @@ const routes = [
     component: LoginView
   },
   {
-    path: '/createArticle',
+    path: '/articles/:slug',
+    name: 'article',
+    component: LoginView
+  },
+  {
+    path: '/articles/:slug/edit',
+    name: 'editArticle',
+    component: LoginView
+  },
+  {
+    path: '/articles/new',
     name: 'createArticle',
     component: LoginView
   },
   {
-    path: '/userProfile',
+    path: '/profiles/:slug',
     name: 'userProfile',
     component: LoginView
-  }
+  },
+  {
+    path: '/profiles/:slug/favorites',
+    name: 'userProfileFavorites',
+    component: LoginView
+  },
 ]
 
 const router = createRouter({
