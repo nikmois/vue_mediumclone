@@ -56,7 +56,7 @@ export default {
             this.$store.dispatch(actionTypes.register, {email: this.email, username: this.username, password: this.password})
             .then(user=> {
                 console.log("successfully registered user", user)
-                this.$router.push({name: "home"})
+                this.$router.push({name: "globalFeed"})
             })
         },
 

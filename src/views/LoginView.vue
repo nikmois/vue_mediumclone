@@ -57,7 +57,7 @@ export default {
         onSubmit() {
             this.$store.dispatch(actionTypes.login, {email: this.email, password: this.password})
             .then(()=> {
-                this.$router.push({name: "home"})
+                this.$router.push({name: "globalFeed"})
             })
         },
 
